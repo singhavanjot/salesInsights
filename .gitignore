@@ -1,0 +1,64 @@
+# Git ignore patterns
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.pyo
+.pyd
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Test & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+coverage.xml
+*.cover
+
+# Build outputs
+*.log
+*.pot
+*.mo
+.mypy_cache/
+.ruff_cache/
+
+# Frontend build
+frontend/dist/
+frontend/node_modules/
+
+# Docker
+.docker/
+
+# Environment files (keep examples)
+.env
+.env.local
+.env.*.local
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
