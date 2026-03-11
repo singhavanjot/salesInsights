@@ -148,7 +148,10 @@ async def send_with_resend(
             "html": html_content,
         })
         logger.info(f"Resend response: {response}")
-        return bool(response.get("id"))
+        # Handle both dict and object response formats
+        if hasattr(response, 'id'):
+            return bool(response.id)
+        return bool(response.get("id") if isinstance(response, dict) else response)
     except Exception as e:
         logger.error(f"Resend error: {e}")
         raise
