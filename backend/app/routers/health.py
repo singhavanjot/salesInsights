@@ -29,14 +29,16 @@ async def health_check() -> HealthResponse:
         or (settings.EMAIL_PROVIDER == "resend" and settings.RESEND_API_KEY)
     )
     
-    if not llm_configured or not email_configured:
+    # Only require LLM to be configured for health check
+    # Email errors will be shown when user tries to send
+    if not llm_configured:
         raise HTTPException(
             status_code=503,
             detail={
                 "status": "unhealthy",
                 "llm_configured": llm_configured,
                 "email_configured": email_configured,
-                "message": "Critical configuration missing",
+                "message": "LLM configuration missing",
             },
         )
     
